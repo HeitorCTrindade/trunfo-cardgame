@@ -24,7 +24,7 @@ class Form extends Component {
           <p>Nome:</p>
           <input
             type="text"
-            name=""
+            name="cardName"
             id=""
             data-testid="name-input"
             value={ cardName }
@@ -32,7 +32,7 @@ class Form extends Component {
           />
           <p>Descrição:</p>
           <textarea
-            name=""
+            name="cardDescription"
             id=""
             data-testid="description-input"
             value={ cardDescription }
@@ -41,7 +41,7 @@ class Form extends Component {
           <p>attr01</p>
           <input
             type="number"
-            name=""
+            name="cardAttr1"
             id=""
             data-testid="attr1-input"
             value={ cardAttr1 }
@@ -50,7 +50,7 @@ class Form extends Component {
           <p>attr02</p>
           <input
             type="number"
-            name=""
+            name="cardAttr2"
             id=""
             data-testid="attr2-input"
             value={ cardAttr2 }
@@ -59,7 +59,7 @@ class Form extends Component {
           <p>attr03</p>
           <input
             type="number"
-            name=""
+            name="cardAttr3"
             id=""
             data-testid="attr3-input"
             value={ cardAttr3 }
@@ -67,8 +67,8 @@ class Form extends Component {
           />
           <p>Imagem:</p>
           <input
-            type="text"
-            name=""
+            type="file"
+            name="cardImage"
             id=""
             data-testid="image-input"
             value={ cardImage }
@@ -88,7 +88,7 @@ class Form extends Component {
           </select>
           <input
             type="checkbox"
-            name=""
+            name="cardTrunfo"
             id="trunfo"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
