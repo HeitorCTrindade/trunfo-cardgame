@@ -17,3 +17,8 @@ code {
   flex-direction: column;
   width: 500px;
 }
+
+#game-section {
+  display: flex;
+  justify-content: space-between;
+}
