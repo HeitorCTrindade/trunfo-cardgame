@@ -28,6 +28,7 @@ class Form extends Component {
             id=""
             data-testid="name-input"
             value={ cardName }
+            onChange={ onInputChange }
           />
           <p>Descrição:</p>
           <textarea
@@ -35,6 +36,7 @@ class Form extends Component {
             id=""
             data-testid="description-input"
             value={ cardDescription }
+            onChange={ onInputChange }
           />
           <p>attr01</p>
           <input
@@ -43,6 +45,7 @@ class Form extends Component {
             id=""
             data-testid="attr1-input"
             value={ cardAttr1 }
+            onChange={ onInputChange }
           />
           <p>attr02</p>
           <input
@@ -51,6 +54,7 @@ class Form extends Component {
             id=""
             data-testid="attr2-input"
             value={ cardAttr2 }
+            onChange={ onInputChange }
           />
           <p>attr03</p>
           <input
@@ -59,6 +63,7 @@ class Form extends Component {
             id=""
             data-testid="attr3-input"
             value={ cardAttr3 }
+            onChange={ onInputChange }
           />
           <p>Imagem:</p>
           <input
@@ -67,6 +72,7 @@ class Form extends Component {
             id=""
             data-testid="image-input"
             value={ cardImage }
+            onChange={ onInputChange }
           />
           <p>Selecione a raridade da carta:</p>
           <select
@@ -74,6 +80,7 @@ class Form extends Component {
             id=""
             data-testid="rare-input"
             value={ cardRare }
+            onChange={ onInputChange }
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
@@ -85,9 +92,11 @@ class Form extends Component {
             id="trunfo"
             data-testid="trunfo-input"
             checked={ cardTrunfo }
+            onChange={ onInputChange }
           />
           Super Trybe Trunfo
           <button
+            type="submit"
             disabled={ isSaveButtonDisabled }
             data-testid="save-button"
             onClick={ onSaveButtonClick }
@@ -109,7 +118,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
