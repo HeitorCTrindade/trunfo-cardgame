@@ -67,7 +67,7 @@ class Form extends Component {
           />
           <p>Imagem:</p>
           <input
-            type="file"
+            type="text"
             name="cardImage"
             id=""
             data-testid="image-input"
