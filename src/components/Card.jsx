@@ -12,12 +12,28 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      generateDeleteButton,
+      handleDeleteCardButton,
     } = this.props;
     let renderTrunfo;
+    let renderCloseButton;
     if (cardTrunfo) {
       renderTrunfo = <h3 data-testid="trunfo-card">Super Trunfo</h3>;
     } else {
-      renderTrunfo = <h3> </h3>;
+      renderTrunfo = <> </>;
+    }
+    if (generateDeleteButton) {
+      renderCloseButton = (
+        <button
+          type="button"
+          name={ cardName }
+          data-testid="delete-button"
+          onClick={ handleDeleteCardButton }
+        >
+          Delete Card
+        </button>);
+    } else {
+      renderCloseButton = <> </>;
     }
     return (
       <section className="card">
@@ -51,6 +67,9 @@ class Card extends Component {
           </h3>
           { renderTrunfo }
         </div>
+        <div>
+          { renderCloseButton }
+        </div>
       </section>
     );
   }
@@ -65,7 +84,8 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  generateDeleteButton: PropTypes.bool.isRequired,
+  handleDeleteCardButton: PropTypes.func.isRequired,
 };
 
 export default Card;

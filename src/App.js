@@ -22,6 +22,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     arraySavedCards: [],
+    generateDeleteButton: false,
   }
 
   handleChangesForm(event) {
@@ -105,6 +106,22 @@ class App extends React.Component {
     });
   }
 
+  handleDeleteCardButton = (event) => {
+    const { name } = event.target;
+    console.log(name);
+    this.setState((prevState) => {
+      const newArraySavedCards = prevState.arraySavedCards
+        .filter((card) => card.cardName !== name);
+      const arrayOnlyDeletedCard = prevState.arraySavedCards
+        .filter((card) => card.cardName === name);
+      console.log(arrayOnlyDeletedCard);
+      return {
+        arraySavedCards: newArraySavedCards,
+        hasTrunfo: !arrayOnlyDeletedCard[0].cardTrunfo, // If the deleted card is 'superTrunfo' ((cardTrunfo = true)), then there will be no such card in the deck (hasTrunfo = false (!cardTrunfo)).
+      };
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -118,6 +135,7 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       arraySavedCards,
+      generateDeleteButton,
     } = this.state;
 
     return (
@@ -148,11 +166,16 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
             onInputChange={ this.handleChangesForm }
+            generateDeleteButton={ generateDeleteButton }
+            handleDeleteCardButton={ this.handleDeleteCardButton }
           />
         </section>
         <section>
           <h2>Deck de Cartas:</h2>
-          <Deck arraySavedCards={ arraySavedCards } />
+          <Deck
+            arraySavedCards={ arraySavedCards }
+            handleDeleteCardButton={ this.handleDeleteCardButton }
+          />
         </section>
       </main>
     );

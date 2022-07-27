@@ -4,7 +4,8 @@ import Card from './Card';
 
 class Deck extends Component {
   render() {
-    const { arraySavedCards } = this.props;
+    const { arraySavedCards, handleDeleteCardButton } = this.props;
+    const generateDeleteButton = true;
     const cardsElements = arraySavedCards.map((card) => (<Card
       key={ card.cardName }
       cardName={ card.cardName }
@@ -15,6 +16,8 @@ class Deck extends Component {
       cardImage={ card.cardImage }
       cardRare={ card.cardRare }
       cardTrunfo={ card.cardTrunfo }
+      generateDeleteButton={ generateDeleteButton }
+      handleDeleteCardButton={ handleDeleteCardButton }
     />));
     return <div>{cardsElements}</div>;
   }
@@ -22,6 +25,7 @@ class Deck extends Component {
 
 Deck.propTypes = {
   arraySavedCards: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleDeleteCardButton: PropTypes.func.isRequired,
 };
 
 export default Deck;
