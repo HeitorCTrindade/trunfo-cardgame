@@ -25,16 +25,10 @@ class App extends React.Component {
 
   handleChangesForm(event) {
     const { name, value } = event.target;
-    this.setState({}, () => {
-      if (name === 'cardTrunfo') {
-        const { checked } = event.target;
-        console.log(checked);
-        this.setState((prevState) => ({ [name]: !prevState.cardTrunfo }));
-      } else {
-        this.setState({
-          [name]: value,
-        });
-      }
+    this.setState({ [name]: value }, () => {
+      // if (name === 'cardTrunfo') {
+      //   this.setState((prevState) => ({ [name]: !prevState.cardTrunfo }));
+      // }
       const limitSumAtrr = 210;
       const limitAtrr = 90;
       const {
