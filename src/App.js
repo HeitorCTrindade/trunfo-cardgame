@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './components/Card';
+import Deck from './components/Deck';
 import Form from './components/Form';
 import './index.css';
 
@@ -116,6 +117,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      arraySavedCards,
     } = this.state;
 
     return (
@@ -147,6 +149,10 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
             onInputChange={ this.handleChangesForm }
           />
+        </section>
+        <section>
+          <h2>Deck de Cartas:</h2>
+          <Deck arraySavedCards={ arraySavedCards } />
         </section>
       </main>
     );
