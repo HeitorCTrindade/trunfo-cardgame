@@ -22,3 +22,27 @@ code {
   display: flex;
   justify-content: space-around;
 }
+
+
+/* template from w3schools.com */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 300px;
+  height: 450px;
+  border-color: black;
+  border-style: solid;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
