@@ -1,4 +1,4 @@
-
+const img = 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200';
 arrayCards = [
   {
     cardName: 'IpsumLoren',
@@ -6,7 +6,7 @@ arrayCards = [
     cardAttr1: 45,
     cardAttr2: 60,
     cardAttr3: 45,
-    cardImage: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200',
+    cardImage: img,
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
@@ -17,7 +17,7 @@ arrayCards = [
     cardAttr1: 45,
     cardAttr2: 60,
     cardAttr3: 45,
-    cardImage: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200',
+    cardImage: img,
     cardTrunfo: false,
     hasTrunfo: false,
   },
@@ -27,7 +27,7 @@ arrayCards = [
     cardAttr1: 45,
     cardAttr2: 60,
     cardAttr3: 45,
-    cardImage: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200',
+    cardImage: img,
     cardTrunfo: false,
     hasTrunfo: false,
   },
@@ -37,7 +37,7 @@ arrayCards = [
     cardAttr1: 45,
     cardAttr2: 60,
     cardAttr3: 45,
-    cardImage: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200',
+    cardImage: img,
     cardTrunfo: true,
     hasTrunfo: false,
   },
@@ -47,7 +47,7 @@ arrayCards = [
     cardAttr1: 45,
     cardAttr2: 60,
     cardAttr3: 45,
-    cardImage: 'https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=200',
+    cardImage: img,
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
