@@ -48,7 +48,7 @@ class Deck extends Component {
             placeholder="nome da carta"
             onChange={ handleSearchFilter }
           />
-          {/* <select
+          <select
             name="cardRare"
             id=""
             data-testid="rare-filter"
@@ -58,7 +58,7 @@ class Deck extends Component {
             <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
-          </select> */}
+          </select>
         </div>
         <div>{ cardsElements }</div>
       </section>
