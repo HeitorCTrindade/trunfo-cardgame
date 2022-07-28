@@ -24,22 +24,50 @@ class Deck extends Component {
     return ArrayCardsElements;
   }
 
-  render() {
+  generateFilterElements(STFilter) {
     const {
-      arraySavedCards,
       handleSearchFilter,
-      nameFilter,
-      rareFilter,
+      superTrunfoFilter,
     } = this.props;
-    let arrayTest = [];
-    arrayTest = arraySavedCards
-      .filter((card) => card.cardName.includes(nameFilter) || nameFilter === '')
-      .filter((card) => card.cardRare === rareFilter || rareFilter === 'todas');
-    const cardsElements = this.generateArrayCardsElements(arrayTest);
+    if (STFilter) {
+      return (
+        <>
+          <fieldset disabled>
+            <input
+              type="text"
+              name="nameFilter"
+              data-testid="name-filter"
+              placeholder="nome da carta"
+              onChange={ handleSearchFilter }
+            />
+          </fieldset>
+          <fieldset disabled>
+            <select
+              name="rareFilter"
+              id=""
+              data-testid="rare-filter"
+              onChange={ handleSearchFilter }
+            >
+              <option value="todas">todas</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
+            </select>
+          </fieldset>
+          <input
+            type="checkbox"
+            name="superTrunfoFilter"
+            id="trunfo"
+            data-testid="trunfo-filter"
+            checked={ superTrunfoFilter }
+            onChange={ handleSearchFilter }
+          />
+        </>
+      );
+    }
     return (
-      <section>
-        <div>
-          <h3>Filtros de busca:</h3>
+      <>
+        <fieldset>
           <input
             type="text"
             name="nameFilter"
@@ -47,8 +75,10 @@ class Deck extends Component {
             placeholder="nome da carta"
             onChange={ handleSearchFilter }
           />
+        </fieldset>
+        <fieldset>
           <select
-            name="cardRare"
+            name="rareFilter"
             id=""
             data-testid="rare-filter"
             onChange={ handleSearchFilter }
@@ -58,6 +88,46 @@ class Deck extends Component {
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
           </select>
+        </fieldset>
+        <input
+          type="checkbox"
+          name="superTrunfoFilter"
+          id="trunfo"
+          data-testid="trunfo-filter"
+          checked={ superTrunfoFilter }
+          onChange={ handleSearchFilter }
+        />
+      </>
+    );
+  }
+
+  render() {
+    const {
+      arraySavedCards,
+      nameFilter,
+      rareFilter,
+      superTrunfoFilter,
+    } = this.props;
+
+    let arrayTest = [];
+    let searchElements;
+
+    if (superTrunfoFilter) {
+      searchElements = this.generateFilterElements(superTrunfoFilter);
+      arrayTest = arraySavedCards
+        .filter((card) => card.cardTrunfo === true);
+    } else {
+      searchElements = this.generateFilterElements(superTrunfoFilter);
+      arrayTest = arraySavedCards
+        .filter((card) => card.cardName.includes(nameFilter) || nameFilter === '')
+        .filter((card) => card.cardRare === rareFilter || rareFilter === 'todas');
+    }
+    const cardsElements = this.generateArrayCardsElements(arrayTest);
+    return (
+      <section>
+        <div>
+          <h3>Filtros de busca:</h3>
+          { searchElements }
         </div>
         <div>{ cardsElements }</div>
       </section>
@@ -71,6 +141,7 @@ Deck.propTypes = {
   handleSearchFilter: PropTypes.func.isRequired,
   nameFilter: PropTypes.string.isRequired,
   rareFilter: PropTypes.string.isRequired,
+  superTrunfoFilter: PropTypes.bool.isRequired,
 };
 
 export default Deck;

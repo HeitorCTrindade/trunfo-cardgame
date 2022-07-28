@@ -26,6 +26,7 @@ class App extends React.Component {
     arrayFilteredCards: [],
     nameFilter: '',
     rareFilter: 'todas',
+    superTrunfoFilter: false,
   }
 
   handleChangesForm(event) {
@@ -135,8 +136,11 @@ class App extends React.Component {
 
   handleSearchFilter = (event) => {
     const { name, value } = event.target;
-    console.log(name);
-    this.setState({ [name]: value });
+    if (name === 'superTrunfoFilter') {
+      this.setState((prevState) => ({ [name]: !prevState.superTrunfoFilter }));
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   // handleSearchFilterSelect = (event) => {
@@ -171,6 +175,7 @@ class App extends React.Component {
       arrayFilteredCards,
       nameFilter,
       rareFilter,
+      superTrunfoFilter,
     } = this.state;
 
     return (
@@ -214,6 +219,7 @@ class App extends React.Component {
             arrayFilteredCards={ arrayFilteredCards }
             nameFilter={ nameFilter }
             rareFilter={ rareFilter }
+            superTrunfoFilter={ superTrunfoFilter }
           />
         </section>
       </main>
