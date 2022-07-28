@@ -27,7 +27,6 @@ class Deck extends Component {
   render() {
     const {
       arraySavedCards,
-      arrayFilteredCards,
       handleSearchFilter,
       nameFilter,
       rareFilter,
@@ -69,7 +68,6 @@ class Deck extends Component {
 Deck.propTypes = {
   arraySavedCards: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleDeleteCardButton: PropTypes.func.isRequired,
-  arrayFilteredCards: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSearchFilter: PropTypes.func.isRequired,
   nameFilter: PropTypes.string.isRequired,
   rareFilter: PropTypes.string.isRequired,
