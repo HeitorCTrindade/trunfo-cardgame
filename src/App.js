@@ -24,6 +24,8 @@ class App extends React.Component {
     arraySavedCards: [],
     generateDeleteButton: false,
     arrayFilteredCards: [],
+    nameFilter: '',
+    rareFilter: 'todas',
   }
 
   handleChangesForm(event) {
@@ -122,20 +124,35 @@ class App extends React.Component {
     });
   }
 
+  // selectArrayToFilter = () => {
+  //   const { arraySavedCards, arrayFilteredCards } = this.state;
+  //   if (arrayFilteredCards.length > 0) {
+  //     console.log('entrei aqui');
+  //     return arrayFilteredCards;
+  //   }
+  //   return arraySavedCards;
+  // }
+
   handleSearchFilter = (event) => {
-    const { value } = event.target;
-    const { arraySavedCards } = this.state;
-    console.log(value);
-    console.log(arraySavedCards);
-    this.setState(() => {
-      const newArrayFilteredCards = arraySavedCards
-        .filter((card) => card.cardName.includes(value));
-      console.log(newArrayFilteredCards);
-      return {
-        arrayFilteredCards: newArrayFilteredCards,
-      };
-    });
+    const { name, value } = event.target;
+    console.log(name);
+    this.setState({ [name]: value });
   }
+
+  // handleSearchFilterSelect = (event) => {
+  //   const { value } = event.target;
+  //   const arrayToFilter = this.selectArrayToFilter();
+  //   console.log(value);
+  //   console.log(arraySavedCards);
+  //   this.setState(() => {
+  //     const newArrayFilteredCards = arrayToFilter
+  //       .filter((card) => card.cardRare === value);
+  //     console.log(newArrayFilteredCards);
+  //     return {
+  //       arrayFilteredCards: newArrayFilteredCards,
+  //     };
+  //   });
+  // }
 
   render() {
     const {
@@ -152,6 +169,8 @@ class App extends React.Component {
       arraySavedCards,
       generateDeleteButton,
       arrayFilteredCards,
+      nameFilter,
+      rareFilter,
     } = this.state;
 
     return (
@@ -193,6 +212,8 @@ class App extends React.Component {
             handleDeleteCardButton={ this.handleDeleteCardButton }
             handleSearchFilter={ this.handleSearchFilter }
             arrayFilteredCards={ arrayFilteredCards }
+            nameFilter={ nameFilter }
+            rareFilter={ rareFilter }
           />
         </section>
       </main>

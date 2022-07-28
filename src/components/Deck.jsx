@@ -25,27 +25,40 @@ class Deck extends Component {
   }
 
   render() {
-    const { arraySavedCards, arrayFilteredCards, handleSearchFilter } = this.props;
-    let cardsElements;
-    if (arrayFilteredCards.length < arraySavedCards.length) {
-      // meens filter has used
-      cardsElements = this.generateArrayCardsElements(arrayFilteredCards);
-      console.log('GEROU DO ARRAY FILTRADO');
-    } else {
-      cardsElements = this.generateArrayCardsElements(arraySavedCards);
-      console.log('GEROU DO ARRAY GERAL');
-    }
+    const {
+      arraySavedCards,
+      arrayFilteredCards,
+      handleSearchFilter,
+      nameFilter,
+      rareFilter,
+    } = this.props;
+    let arrayTest = [];
+    arrayTest = arraySavedCards
+      .filter((card) => card.cardName.includes(nameFilter) || nameFilter === '')
+      .filter((card) => card.cardRare === rareFilter || rareFilter === 'todas');
+    const cardsElements = this.generateArrayCardsElements(arrayTest);
     return (
       <section>
         <div>
           <h3>Filtros de busca:</h3>
           <input
             type="text"
-            name=""
+            name="nameFilter"
             data-testid="name-filter"
             placeholder="nome da carta"
             onChange={ handleSearchFilter }
           />
+          {/* <select
+            name="cardRare"
+            id=""
+            data-testid="rare-filter"
+            onChange={ handleSearchFilter }
+          >
+            <option value="todas">todas</option>
+            <option value="normal">normal</option>
+            <option value="raro">raro</option>
+            <option value="muito raro">muito raro</option>
+          </select> */}
         </div>
         <div>{ cardsElements }</div>
       </section>
@@ -58,6 +71,8 @@ Deck.propTypes = {
   handleDeleteCardButton: PropTypes.func.isRequired,
   arrayFilteredCards: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSearchFilter: PropTypes.func.isRequired,
+  nameFilter: PropTypes.string.isRequired,
+  rareFilter: PropTypes.string.isRequired,
 };
 
 export default Deck;
