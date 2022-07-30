@@ -6,7 +6,7 @@ class Deck extends Component {
   generateArrayCardsElements(arrayCards) {
     const { handleDeleteCardButton } = this.props;
     const generateDeleteButton = true;
-    const ArrayCardsElements = arrayCards.map((card) => (
+    const arrayCardsElements = arrayCards.map((card) => (
       <Card
         key={ card.cardName }
         cardName={ card.cardName }
@@ -21,15 +21,15 @@ class Deck extends Component {
         handleDeleteCardButton={ handleDeleteCardButton }
       />
     ));
-    return ArrayCardsElements;
+    return arrayCardsElements;
   }
 
-  generateFilterElements(STFilter) {
+  generateFilteredElements() {
     const {
       handleSearchFilter,
       superTrunfoFilter,
     } = this.props;
-    if (STFilter) {
+    if (superTrunfoFilter) {
       return (
         <>
           <fieldset disabled>
@@ -109,20 +109,20 @@ class Deck extends Component {
       superTrunfoFilter,
     } = this.props;
 
-    let arrayTest = [];
+    let filteredArray = [];
     let searchElements;
 
     if (superTrunfoFilter) {
-      searchElements = this.generateFilterElements(superTrunfoFilter);
-      arrayTest = arraySavedCards
+      searchElements = this.generateFilteredElements();
+      filteredArray = arraySavedCards
         .filter((card) => card.cardTrunfo === true);
     } else {
-      searchElements = this.generateFilterElements(superTrunfoFilter);
-      arrayTest = arraySavedCards
+      searchElements = this.generateFilteredElements();
+      filteredArray = arraySavedCards
         .filter((card) => card.cardName.includes(nameFilter) || nameFilter === '')
         .filter((card) => card.cardRare === rareFilter || rareFilter === 'todas');
     }
-    const cardsElements = this.generateArrayCardsElements(arrayTest);
+    const cardsElements = this.generateArrayCardsElements(filteredArray);
     return (
       <section>
         <div>

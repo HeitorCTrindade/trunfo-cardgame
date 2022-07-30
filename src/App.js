@@ -3,6 +3,7 @@ import Card from './components/Card';
 import Deck from './components/Deck';
 import Form from './components/Form';
 import './index.css';
+import './card.css';
 
 class App extends React.Component {
   constructor() {
@@ -125,15 +126,6 @@ class App extends React.Component {
     });
   }
 
-  // selectArrayToFilter = () => {
-  //   const { arraySavedCards, arrayFilteredCards } = this.state;
-  //   if (arrayFilteredCards.length > 0) {
-  //     console.log('entrei aqui');
-  //     return arrayFilteredCards;
-  //   }
-  //   return arraySavedCards;
-  // }
-
   handleSearchFilter = (event) => {
     const { name, value } = event.target;
     if (name === 'superTrunfoFilter') {
@@ -142,21 +134,6 @@ class App extends React.Component {
       this.setState({ [name]: value });
     }
   }
-
-  // handleSearchFilterSelect = (event) => {
-  //   const { value } = event.target;
-  //   const arrayToFilter = this.selectArrayToFilter();
-  //   console.log(value);
-  //   console.log(arraySavedCards);
-  //   this.setState(() => {
-  //     const newArrayFilteredCards = arrayToFilter
-  //       .filter((card) => card.cardRare === value);
-  //     console.log(newArrayFilteredCards);
-  //     return {
-  //       arrayFilteredCards: newArrayFilteredCards,
-  //     };
-  //   });
-  // }
 
   render() {
     const {

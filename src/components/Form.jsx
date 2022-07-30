@@ -17,19 +17,6 @@ class Form extends Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
-    let isAllowedToSave;
-    if (hasTrunfo) {
-      isAllowedToSave = <h3>Você já tem um Super Trunfo em seu baralho</h3>;
-    } else {
-      isAllowedToSave = (<input
-        type="checkbox"
-        name="cardTrunfo"
-        id="trunfo"
-        data-testid="trunfo-input"
-        checked={ cardTrunfo }
-        onChange={ onInputChange }
-      />);
-    }
     return (
       <div>
         <h2>Adicionar nova carta</h2>
@@ -50,6 +37,7 @@ class Form extends Component {
             data-testid="description-input"
             value={ cardDescription }
             onChange={ onInputChange }
+            maxLength={ 50 }
           />
           <p>attr01</p>
           <input
@@ -97,9 +85,19 @@ class Form extends Component {
           >
             <option value="normal">normal</option>
             <option value="raro">raro</option>
-            <option value="muito raro">muito raro</option>
+            <option value="muito-raro">muito raro</option>
           </select>
-          { isAllowedToSave }
+          {
+            hasTrunfo ? <h3>Você já tem um Super Trunfo em seu baralho</h3> : (
+              <input
+                type="checkbox"
+                name="cardTrunfo"
+                id="trunfo"
+                data-testid="trunfo-input"
+                checked={ cardTrunfo }
+                onChange={ onInputChange }
+              />)
+          }
           <button
             type="submit"
             disabled={ isSaveButtonDisabled }
